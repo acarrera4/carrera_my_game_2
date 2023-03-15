@@ -1,8 +1,5 @@
-# testing changes with this line...more editssss....
-# asdfasdfasdfasdfasdf;skdjf;lkasjdf;lkasjd;flkjasdf;lk
-# ;ALSKJDF;LKASJDF;KLJASD;FLKJAS;DKLFJ
-# import libraries
-# test comment for git
+#github test
+#trying again
 import pygame as pg
 import random
 import os
