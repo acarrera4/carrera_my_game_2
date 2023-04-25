@@ -16,7 +16,7 @@ class Player(Sprite):
         # these are the properties
         self.game = game
         self.image = pg.Surface((50,50))
-        self.image.fill(BLUE)
+        self.image.fill(PINK)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH/2, HEIGHT/2)
         self.pos = vec(WIDTH/2, HEIGHT/2)
@@ -24,6 +24,8 @@ class Player(Sprite):
         self.acc = vec(0,0)
         self.cofric = 0.1
         self.canjump = False
+        self.health = 100
+        
     def input(self):
         keystate = pg.key.get_pressed()
         # if keystate[pg.K_w]:
@@ -34,13 +36,7 @@ class Player(Sprite):
         #     self.acc.y = PLAYER_ACC
         if keystate[pg.K_d]:
             self.acc.x = PLAYER_ACC
-        # if keystate[pg.K_p]:
-        #     if PAUSED == False:
-        #         PAUSED = True
-        #         print(PAUSED)
-        #     else:
-        #         PAUSED = False
-        #         print(PAUSED)
+       
     # ...
     def jump(self):
         self.rect.x += 1
@@ -76,13 +72,14 @@ class Player(Sprite):
         self.pos += self.vel + 0.5 * self.acc
         self.rect.midbottom = self.pos
 
+#player 2 class
 class Player2(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
         # these are the properties
         self.game = game
         self.image = pg.Surface((50,50))
-        self.image.fill(CYAN)
+        self.image.fill(LIGHT_BLUE)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH/2, HEIGHT/2)
         self.pos = vec(WIDTH/2, HEIGHT/2)
@@ -90,6 +87,7 @@ class Player2(Sprite):
         self.acc = vec(0,0)
         self.cofric = 0.1
         self.canjump = False
+        self.health = 100 
     def input(self):
         keystate = pg.key.get_pressed()
         # if keystate[pg.K_w]:
@@ -100,14 +98,8 @@ class Player2(Sprite):
         #     self.acc.y = PLAYER_ACC
         if keystate[pg.K_RIGHT]:
             self.acc.x = PLAYER_ACC
-        # if keystate[pg.K_p]:
-        #     if PAUSED == False:
-        #         PAUSED = True
-        #         print(PAUSED)
-        #     else:
-        #         PAUSED = False
-        #         print(PAUSED)
-    # ...
+    
+    # 
     def jump(self):
         self.rect.x += 1
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
@@ -142,6 +134,7 @@ class Player2(Sprite):
         self.pos += self.vel + 0.5 * self.acc
         self.rect.midbottom = self.pos
 
+# mob class
 class Mob(Sprite):
     def __init__(self,width,height,color):
         Sprite.__init__(self)
